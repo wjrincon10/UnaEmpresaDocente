@@ -1,0 +1,1491 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20193.19.1017.1259                               -->
+<workbook original-version='18.1' source-build='2019.3.1 (20193.19.1017.1259)' source-platform='win' version='18.1' xml:base='https://public.tableau.com' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AutoCreateAndUpdateDSDPhoneLayouts ignorable='true' predowngraded='true' />
+    <SheetIdentifierTracking ignorable='true' predowngraded='true' />
+    <WindowsPersistSimpleIdentifiers />
+    <ZoneBackgroundTransparency />
+  </document-format-change-manifest>
+  <repository-location id='EntregaFinal_20191207_Suscribers' path='/workbooks' revision='1.0' />
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='Obj_Subscribers' inline='true' name='federated.0kllgy80si48e0183ryhy1nuoz6v' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='Obj_Subscribers' name='textscan.1kzpr6k1gxmshr1bnsvpu10yymd2'>
+            <connection class='textscan' directory='C:/LINA MARCELA/UNIANDES/VISUAL_ANALYTICS/Proyecto/YoutubeAPI/Output' filename='Objetivo2_reporte_2016-07-01_a_2019-11-16.csv' password='' server='' workgroup-auth-mode='as-is' />
+          </named-connection>
+        </named-connections>
+        <relation join='inner' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[videoMetrics_UED.csv].[videoId]' />
+              <expression op='[videoSummary_UED.csv].[videoId]' />
+            </expression>
+          </clause>
+          <relation connection='textscan.1kzpr6k1gxmshr1bnsvpu10yymd2' name='videoMetrics_UED.csv' table='[videoMetrics_UED#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator='|'>
+              <column datatype='date' name='day' ordinal='0' />
+              <column datatype='integer' name='estimatedMinutesWatched' ordinal='1' />
+              <column datatype='integer' name='views' ordinal='2' />
+              <column datatype='integer' name='shares' ordinal='3' />
+              <column datatype='integer' name='likes' ordinal='4' />
+              <column datatype='integer' name='dislikes' ordinal='5' />
+              <column datatype='integer' name='subscribersGained' ordinal='6' />
+              <column datatype='integer' name='subscribersLost' ordinal='7' />
+              <column datatype='integer' name='comments' ordinal='8' />
+              <column datatype='integer' name='averageViewDuration' ordinal='9' />
+              <column datatype='real' name='averageViewPercentage' ordinal='10' />
+              <column datatype='string' name='videoId' ordinal='11' />
+              <column datatype='string' name='esquemaDifusion' ordinal='12' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1kzpr6k1gxmshr1bnsvpu10yymd2' name='videoSummary_UED.csv' table='[videoSummary_UED#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator='|'>
+              <column datatype='string' name='videoId' ordinal='0' />
+              <column datatype='string' name='title' ordinal='1' />
+              <column datatype='datetime' name='publishedAt' ordinal='2' />
+              <column datatype='integer' name='esquemaId' ordinal='3' />
+              <column datatype='string' name='esquemaDifusion' ordinal='4' />
+              <column datatype='string' name='tags' ordinal='5' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[averageViewDuration]' value='[videoMetrics_UED.csv].[averageViewDuration]' />
+          <map key='[averageViewPercentage]' value='[videoMetrics_UED.csv].[averageViewPercentage]' />
+          <map key='[comments]' value='[videoMetrics_UED.csv].[comments]' />
+          <map key='[day]' value='[videoMetrics_UED.csv].[day]' />
+          <map key='[dislikes]' value='[videoMetrics_UED.csv].[dislikes]' />
+          <map key='[esquemaDifusion (videoSummary_UED.csv)]' value='[videoSummary_UED.csv].[esquemaDifusion]' />
+          <map key='[esquemaDifusion]' value='[videoMetrics_UED.csv].[esquemaDifusion]' />
+          <map key='[esquemaId]' value='[videoSummary_UED.csv].[esquemaId]' />
+          <map key='[estimatedMinutesWatched]' value='[videoMetrics_UED.csv].[estimatedMinutesWatched]' />
+          <map key='[likes]' value='[videoMetrics_UED.csv].[likes]' />
+          <map key='[publishedAt]' value='[videoSummary_UED.csv].[publishedAt]' />
+          <map key='[shares]' value='[videoMetrics_UED.csv].[shares]' />
+          <map key='[subscribersGained]' value='[videoMetrics_UED.csv].[subscribersGained]' />
+          <map key='[subscribersLost]' value='[videoMetrics_UED.csv].[subscribersLost]' />
+          <map key='[tags]' value='[videoSummary_UED.csv].[tags]' />
+          <map key='[title]' value='[videoSummary_UED.csv].[title]' />
+          <map key='[videoId (videoSummary_UED.csv)]' value='[videoSummary_UED.csv].[videoId]' />
+          <map key='[videoId]' value='[videoMetrics_UED.csv].[videoId]' />
+          <map key='[views]' value='[videoMetrics_UED.csv].[views]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[videoMetrics_UED.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;|&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>day</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[day]</local-name>
+            <parent-name>[videoMetrics_UED.csv]</parent-name>
+            <remote-alias>day</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>estimatedMinutesWatched</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[estimatedMinutesWatched]</local-name>
+            <parent-name>[videoMetrics_UED.csv]</parent-name>
+            <remote-alias>estimatedMinutesWatched</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>views</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[views]</local-name>
+            <parent-name>[videoMetrics_UED.csv]</parent-name>
+            <remote-alias>views</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>shares</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[shares]</local-name>
+            <parent-name>[videoMetrics_UED.csv]</parent-name>
+            <remote-alias>shares</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>likes</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[likes]</local-name>
+            <parent-name>[videoMetrics_UED.csv]</parent-name>
+            <remote-alias>likes</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>dislikes</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[dislikes]</local-name>
+            <parent-name>[videoMetrics_UED.csv]</parent-name>
+            <remote-alias>dislikes</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>subscribersGained</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[subscribersGained]</local-name>
+            <parent-name>[videoMetrics_UED.csv]</parent-name>
+            <remote-alias>subscribersGained</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>subscribersLost</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[subscribersLost]</local-name>
+            <parent-name>[videoMetrics_UED.csv]</parent-name>
+            <remote-alias>subscribersLost</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>comments</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[comments]</local-name>
+            <parent-name>[videoMetrics_UED.csv]</parent-name>
+            <remote-alias>comments</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>averageViewDuration</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[averageViewDuration]</local-name>
+            <parent-name>[videoMetrics_UED.csv]</parent-name>
+            <remote-alias>averageViewDuration</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>averageViewPercentage</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[averageViewPercentage]</local-name>
+            <parent-name>[videoMetrics_UED.csv]</parent-name>
+            <remote-alias>averageViewPercentage</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>videoId</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[videoId]</local-name>
+            <parent-name>[videoMetrics_UED.csv]</parent-name>
+            <remote-alias>videoId</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>esquemaDifusion</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[esquemaDifusion]</local-name>
+            <parent-name>[videoMetrics_UED.csv]</parent-name>
+            <remote-alias>esquemaDifusion</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[videoSummary_UED.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;|&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>videoId</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[videoId (videoSummary_UED.csv)]</local-name>
+            <parent-name>[videoSummary_UED.csv]</parent-name>
+            <remote-alias>videoId</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>title</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[title]</local-name>
+            <parent-name>[videoSummary_UED.csv]</parent-name>
+            <remote-alias>title</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>publishedAt</remote-name>
+            <remote-type>135</remote-type>
+            <local-name>[publishedAt]</local-name>
+            <parent-name>[videoSummary_UED.csv]</parent-name>
+            <remote-alias>publishedAt</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>esquemaId</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[esquemaId]</local-name>
+            <parent-name>[videoSummary_UED.csv]</parent-name>
+            <remote-alias>esquemaId</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>esquemaDifusion</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[esquemaDifusion (videoSummary_UED.csv)]</local-name>
+            <parent-name>[videoSummary_UED.csv]</parent-name>
+            <remote-alias>esquemaDifusion</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>tags</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[tags]</local-name>
+            <parent-name>[videoSummary_UED.csv]</parent-name>
+            <remote-alias>tags</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='HistDay' datatype='integer' name='[Calculation_1060034824409300995]' role='dimension' type='quantitative'>
+        <calculation class='tableau' formula='IF( DATEDIFF(&apos;day&apos;,[publishedAt],[day]) &gt; 0 AND  [views] &gt;0)&#13;&#10;    THEN DATEDIFF(&apos;day&apos;,[publishedAt],[day])&#13;&#10;    ELSE 0&#13;&#10;END' />
+      </column>
+      <column caption='DN_Day' datatype='string' name='[Calculation_1859423758667280384]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='DATENAME(&apos;weekday&apos;,[day])' />
+      </column>
+      <column caption='Total_subscriptions' datatype='integer' name='[Calculation_1859423758668922881]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='402' />
+      </column>
+      <column caption='TitleLenght' datatype='integer' name='[Calculation_997828855276605440]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='len([title])' />
+      </column>
+      <column caption='TopN' datatype='boolean' name='[Calculation_997828855297191937]' role='measure' type='nominal'>
+        <calculation class='tableau' formula='INDEX()&lt;=5'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='DN_PublishedAt' datatype='string' name='[Calculation_997828855319367682]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='DATENAME(&apos;weekday&apos;,[publishedAt])' />
+      </column>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Average View Duration' datatype='integer' name='[averageViewDuration]' role='measure' type='quantitative' />
+      <column caption='Average View Percentage' datatype='real' name='[averageViewPercentage]' role='measure' type='quantitative' />
+      <column caption='Comments' datatype='integer' name='[comments]' role='measure' type='quantitative' />
+      <column caption='Day' datatype='date' name='[day]' role='dimension' type='ordinal' />
+      <column caption='Dislikes' datatype='integer' name='[dislikes]' role='measure' type='quantitative' />
+      <column caption='esquemaDifusion (videoSummary UED.csv)' datatype='string' name='[esquemaDifusion (videoSummary_UED.csv)]' role='dimension' type='nominal' />
+      <column caption='Esquema Difusion' datatype='string' name='[esquemaDifusion]' role='dimension' type='nominal' />
+      <column caption='Esquema Id' datatype='integer' name='[esquemaId]' role='dimension' type='ordinal' />
+      <column caption='Estimated Minutes Watched' datatype='integer' name='[estimatedMinutesWatched]' role='measure' type='quantitative' />
+      <column caption='Likes' datatype='integer' name='[likes]' role='measure' type='quantitative' />
+      <column caption='Published At' datatype='datetime' name='[publishedAt]' role='dimension' type='ordinal' />
+      <column caption='Shares' datatype='integer' name='[shares]' role='measure' type='quantitative' />
+      <column caption='Subscribers Gained' datatype='integer' name='[subscribersGained]' role='measure' type='quantitative' />
+      <column caption='Subscribers Lost' datatype='integer' name='[subscribersLost]' role='measure' type='quantitative' />
+      <column caption='Tags' datatype='string' name='[tags]' role='dimension' type='nominal' />
+      <column caption='Title' datatype='string' name='[title]' role='dimension' type='nominal' />
+      <column caption='videoId (videoSummary UED.csv)' datatype='string' name='[videoId (videoSummary_UED.csv)]' role='dimension' type='nominal' />
+      <column caption='Video Id' datatype='string' name='[videoId]' role='dimension' type='nominal' />
+      <column caption='Views' datatype='integer' name='[views]' role='measure' type='quantitative' />
+      <column-instance column='[Calculation_1060034824409300995]' derivation='None' name='[none:Calculation_1060034824409300995:ok]' pivot='key' type='ordinal' />
+      <column-instance column='[esquemaDifusion (videoSummary_UED.csv)]' derivation='None' name='[none:esquemaDifusion (videoSummary_UED.csv):nk]' pivot='key' type='nominal' />
+      <column-instance column='[Calculation_997828855276605440]' derivation='Sum' name='[sum:Calculation_997828855276605440:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[publishedAt]' derivation='Month-Trunc' name='[tmn:publishedAt:ok]' pivot='key' type='ordinal' />
+      <group caption='Action (HistDay,esquemaDifusion (videoSummary UED.csv))' hidden='true' name='[Action (HistDay,esquemaDifusion (videoSummary UED.csv))]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[none:Calculation_1060034824409300995:ok]' />
+          <groupfilter function='level-members' level='[esquemaDifusion (videoSummary_UED.csv)]' />
+        </groupfilter>
+      </group>
+      <group caption='Action (esquemaDifusion (videoSummary UED.csv))' hidden='true' name='[Action (esquemaDifusion (videoSummary UED.csv))]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[esquemaDifusion (videoSummary_UED.csv)]' />
+        </groupfilter>
+      </group>
+      <group caption='Action (esquemaDifusion (videoSummary UED.csv),Insight Traffic Source Detail)' hidden='true' name='[Action (esquemaDifusion (videoSummary UED.csv),Insight Traffic Source Detail)]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[esquemaDifusion (videoSummary_UED.csv)]' />
+          <groupfilter function='level-members' level='[insightTrafficSourceDetail]' />
+        </groupfilter>
+      </group>
+      <group caption='Action (esquemaDifusion (videoSummary UED.csv),MONTH(Published At))' hidden='true' name='[Action (esquemaDifusion (videoSummary UED.csv),MONTH(Published At))]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[esquemaDifusion (videoSummary_UED.csv)]' />
+          <groupfilter function='level-members' level='[tmn:publishedAt:ok]' />
+        </groupfilter>
+      </group>
+      <extract count='-1' enabled='true' units='records'>
+        <connection access_mode='readonly' authentication='auth-none' author-locale='en_US' class='hyper' dbname='C:/LINA MARCELA/UNIANDES/VISUAL_ANALYTICS/Proyecto/YoutubeAPI/Output/Obj_Subscribers.hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' update-time='12/07/2019 09:52:49 PM' username='tableau_internal_user'>
+          <relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <cols>
+            <map key='[averageViewDuration]' value='[Extract].[averageViewDuration]' />
+            <map key='[averageViewPercentage]' value='[Extract].[averageViewPercentage]' />
+            <map key='[comments]' value='[Extract].[comments]' />
+            <map key='[day]' value='[Extract].[day]' />
+            <map key='[dislikes]' value='[Extract].[dislikes]' />
+            <map key='[esquemaDifusion (videoSummary_UED.csv)]' value='[Extract].[esquemaDifusion]' />
+            <map key='[esquemaDifusion]' value='[Extract].[esquemaDifusion1]' />
+            <map key='[esquemaId]' value='[Extract].[esquemaId]' />
+            <map key='[estimatedMinutesWatched]' value='[Extract].[estimatedMinutesWatched]' />
+            <map key='[likes]' value='[Extract].[likes]' />
+            <map key='[publishedAt]' value='[Extract].[publishedAt]' />
+            <map key='[shares]' value='[Extract].[shares]' />
+            <map key='[subscribersGained]' value='[Extract].[subscribersGained]' />
+            <map key='[subscribersLost]' value='[Extract].[subscribersLost]' />
+            <map key='[tags]' value='[Extract].[tags]' />
+            <map key='[title]' value='[Extract].[title]' />
+            <map key='[videoId (videoSummary_UED.csv)]' value='[Extract].[videoId]' />
+            <map key='[videoId]' value='[Extract].[videoId1]' />
+            <map key='[views]' value='[Extract].[views]' />
+          </cols>
+          <refresh>
+            <refresh-event add-from-file-path='Obj_Subscribers' increment-value='%null%' refresh-type='create' rows-inserted='2565687' timestamp-start='2019-12-07 21:52:49.274' />
+          </refresh>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>day</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[day]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>day</remote-alias>
+              <ordinal>0</ordinal>
+              <family>videoMetrics_UED.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>1266</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>estimatedMinutesWatched</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[estimatedMinutesWatched]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>estimatedMinutesWatched</remote-alias>
+              <ordinal>1</ordinal>
+              <family>videoMetrics_UED.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>120</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>views</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[views]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>views</remote-alias>
+              <ordinal>2</ordinal>
+              <family>videoMetrics_UED.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>10</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>shares</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[shares]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>shares</remote-alias>
+              <ordinal>3</ordinal>
+              <family>videoMetrics_UED.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>likes</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[likes]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>likes</remote-alias>
+              <ordinal>4</ordinal>
+              <family>videoMetrics_UED.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>dislikes</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[dislikes]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>dislikes</remote-alias>
+              <ordinal>5</ordinal>
+              <family>videoMetrics_UED.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>subscribersGained</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[subscribersGained]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>subscribersGained</remote-alias>
+              <ordinal>6</ordinal>
+              <family>videoMetrics_UED.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>subscribersLost</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[subscribersLost]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>subscribersLost</remote-alias>
+              <ordinal>7</ordinal>
+              <family>videoMetrics_UED.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>comments</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[comments]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>comments</remote-alias>
+              <ordinal>8</ordinal>
+              <family>videoMetrics_UED.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>averageViewDuration</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[averageViewDuration]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>averageViewDuration</remote-alias>
+              <ordinal>9</ordinal>
+              <family>videoMetrics_UED.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>6011</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>averageViewPercentage</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[averageViewPercentage]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>averageViewPercentage</remote-alias>
+              <ordinal>10</ordinal>
+              <family>videoMetrics_UED.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>23416</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>videoId1</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[videoId]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>videoId1</remote-alias>
+              <ordinal>11</ordinal>
+              <family>videoMetrics_UED.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2266</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>esquemaDifusion1</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[esquemaDifusion]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>esquemaDifusion1</remote-alias>
+              <ordinal>12</ordinal>
+              <family>videoMetrics_UED.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>videoId</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[videoId (videoSummary_UED.csv)]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>videoId</remote-alias>
+              <ordinal>13</ordinal>
+              <family>videoSummary_UED.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2266</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>title</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[title]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>title</remote-alias>
+              <ordinal>14</ordinal>
+              <family>videoSummary_UED.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1817</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>publishedAt</remote-name>
+              <remote-type>135</remote-type>
+              <local-name>[publishedAt]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>publishedAt</remote-alias>
+              <ordinal>15</ordinal>
+              <family>videoSummary_UED.csv</family>
+              <local-type>datetime</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>1333</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>esquemaId</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[esquemaId]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>esquemaId</remote-alias>
+              <ordinal>16</ordinal>
+              <family>videoSummary_UED.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>esquemaDifusion</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[esquemaDifusion (videoSummary_UED.csv)]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>esquemaDifusion</remote-alias>
+              <ordinal>17</ordinal>
+              <family>videoSummary_UED.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>tags</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[tags]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>tags</remote-alias>
+              <ordinal>18</ordinal>
+              <family>videoSummary_UED.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1719</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' dim-percentage='0.722477' measure-ordering='alphabetic' measure-percentage='0.277523' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='shape' field='[:Measure Names]' type='shape'>
+            <map to=':filled/asterisk'>
+              <bucket>&quot;[federated.0kllgy80si48e0183ryhy1nuoz6v].[avg:likes:qk]&quot;</bucket>
+            </map>
+            <map to=':filled/asterisk'>
+              <bucket>&quot;[federated.0kllgy80si48e0183ryhy1nuoz6v].[sum:likes:qk]&quot;</bucket>
+            </map>
+            <map to=':filled/circle'>
+              <bucket>&quot;[federated.0kllgy80si48e0183ryhy1nuoz6v].[avg:shares:qk]&quot;</bucket>
+            </map>
+            <map to=':filled/circle'>
+              <bucket>&quot;[federated.0kllgy80si48e0183ryhy1nuoz6v].[med:shares:qk]&quot;</bucket>
+            </map>
+            <map to=':filled/circle'>
+              <bucket>&quot;[federated.0kllgy80si48e0183ryhy1nuoz6v].[sum:shares:qk]&quot;</bucket>
+            </map>
+            <map to=':filled/diamond'>
+              <bucket>&quot;[federated.0kllgy80si48e0183ryhy1nuoz6v].[avg:comments:qk]&quot;</bucket>
+            </map>
+            <map to=':filled/diamond'>
+              <bucket>&quot;[federated.0kllgy80si48e0183ryhy1nuoz6v].[sum:comments:qk]&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0kllgy80si48e0183ryhy1nuoz6v].[sum:Calculation_997828855276605440:qk]&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;[federated.0kllgy80si48e0183ryhy1nuoz6v].[avg:comments:qk]&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;[federated.0kllgy80si48e0183ryhy1nuoz6v].[sum:comments:qk]&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;[federated.0kllgy80si48e0183ryhy1nuoz6v]&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;[federated.0kllgy80si48e0183ryhy1nuoz6v].[avg:shares:qk]&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;[federated.0kllgy80si48e0183ryhy1nuoz6v].[med:shares:qk]&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;[federated.0kllgy80si48e0183ryhy1nuoz6v].[sum:shares:qk]&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;[federated.0kllgy80si48e0183ryhy1nuoz6v].[avg:views:qk]&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;[federated.0kllgy80si48e0183ryhy1nuoz6v].[sum:views:qk]&quot;</bucket>
+            </map>
+            <map to='#ff9da7'>
+              <bucket>&quot;[federated.0kllgy80si48e0183ryhy1nuoz6v].[avg:likes:qk]&quot;</bucket>
+            </map>
+            <map to='#ff9da7'>
+              <bucket>&quot;[federated.0kllgy80si48e0183ryhy1nuoz6v].[sum:likes:qk]&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Colombia&quot;' />
+      </semantic-values>
+      <filter class='categorical' column='[none:esquemaDifusion (videoSummary_UED.csv):nk]' filter-group='2'>
+        <groupfilter function='union' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+          <groupfilter function='member' level='[none:esquemaDifusion (videoSummary_UED.csv):nk]' member='&quot;Comunicaciones de innovacion&quot;' />
+          <groupfilter function='member' level='[none:esquemaDifusion (videoSummary_UED.csv):nk]' member='&quot;Conferencias virtuales&quot;' />
+          <groupfilter function='member' level='[none:esquemaDifusion (videoSummary_UED.csv):nk]' member='&quot;Presentaciones MAD&quot;' />
+        </groupfilter>
+      </filter>
+    </datasource>
+  </datasources>
+  <shared-views>
+    <shared-view name='federated.0kllgy80si48e0183ryhy1nuoz6v'>
+      <datasources>
+        <datasource caption='Obj_Subscribers' name='federated.0kllgy80si48e0183ryhy1nuoz6v' />
+      </datasources>
+      <datasource-dependencies datasource='federated.0kllgy80si48e0183ryhy1nuoz6v'>
+        <column caption='Day' datatype='date' name='[day]' role='dimension' type='ordinal' />
+        <column caption='esquemaDifusion (videoSummary UED.csv)' datatype='string' name='[esquemaDifusion (videoSummary_UED.csv)]' role='dimension' type='nominal' />
+        <column-instance column='[day]' derivation='None' name='[none:day:qk]' pivot='key' type='quantitative' />
+        <column-instance column='[esquemaDifusion (videoSummary_UED.csv)]' derivation='None' name='[none:esquemaDifusion (videoSummary_UED.csv):nk]' pivot='key' type='nominal' />
+      </datasource-dependencies>
+      <filter class='quantitative' column='[federated.0kllgy80si48e0183ryhy1nuoz6v].[none:day:qk]' included-values='in-range'>
+        <min>#2016-07-01#</min>
+        <max>#2019-10-22#</max>
+      </filter>
+      <filter class='categorical' column='[federated.0kllgy80si48e0183ryhy1nuoz6v].[none:esquemaDifusion (videoSummary_UED.csv):nk]'>
+        <groupfilter function='level-members' level='[none:esquemaDifusion (videoSummary_UED.csv):nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+      </filter>
+    </shared-view>
+  </shared-views>
+  <actions>
+    <action caption='Filter3' name='[Action2]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Obj3_Subscribers' type='sheet' worksheet='Tags' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Obj3_Subscribers' />
+      </command>
+    </action>
+  </actions>
+  <worksheets>
+    <worksheet name='SubscribersGained'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Obj_Subscribers' name='federated.0kllgy80si48e0183ryhy1nuoz6v' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0kllgy80si48e0183ryhy1nuoz6v'>
+            <column caption='Day' datatype='date' name='[day]' role='dimension' type='ordinal' />
+            <column caption='esquemaDifusion (videoSummary UED.csv)' datatype='string' name='[esquemaDifusion (videoSummary_UED.csv)]' role='dimension' type='nominal' />
+            <column-instance column='[day]' derivation='Month' name='[mn:day:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[day]' derivation='None' name='[none:day:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[esquemaDifusion (videoSummary_UED.csv)]' derivation='None' name='[none:esquemaDifusion (videoSummary_UED.csv):nk]' pivot='key' type='nominal' />
+            <column caption='Subscribers Gained' datatype='integer' name='[subscribersGained]' role='measure' type='quantitative' />
+            <column-instance column='[subscribersGained]' derivation='Sum' name='[sum:subscribersGained:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[day]' derivation='Year' name='[yr:day:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0kllgy80si48e0183ryhy1nuoz6v].[Action (esquemaDifusion (videoSummary UED.csv))]'>
+            <groupfilter function='level-members' level='[esquemaDifusion (videoSummary_UED.csv)]' user:ui-action-filter='[Action2]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='quantitative' column='[federated.0kllgy80si48e0183ryhy1nuoz6v].[sum:subscribersGained:qk]' included-values='in-range'>
+            <min>1</min>
+            <max>11</max>
+          </filter>
+          <slices>
+            <column>[federated.0kllgy80si48e0183ryhy1nuoz6v].[none:day:qk]</column>
+            <column>[federated.0kllgy80si48e0183ryhy1nuoz6v].[none:esquemaDifusion (videoSummary_UED.csv):nk]</column>
+            <column>[federated.0kllgy80si48e0183ryhy1nuoz6v].[sum:subscribersGained:qk]</column>
+            <column>[federated.0kllgy80si48e0183ryhy1nuoz6v].[Action (esquemaDifusion (videoSummary UED.csv))]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' field='[federated.0kllgy80si48e0183ryhy1nuoz6v].[none:esquemaDifusion (videoSummary_UED.csv):nk]' value='177' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='width' field='[federated.0kllgy80si48e0183ryhy1nuoz6v].[mn:day:ok]' value='148' />
+            <format attr='width' field='[federated.0kllgy80si48e0183ryhy1nuoz6v].[yr:day:ok]' value='44' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='size-bar' field='[federated.0kllgy80si48e0183ryhy1nuoz6v].[sum:subscribersGained:qk]' field-type='quantitative' max-size='1' min-size='0.005' type='centersize' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+            <format attr='display-field-labels' scope='rows' value='false' />
+          </style-rule>
+          <style-rule element='legend-title-text'>
+            <format attr='color' field='[federated.0kllgy80si48e0183ryhy1nuoz6v].[sum:subscribersGained:qk]' value='Subscribers Gained'>
+              <formatted-text>
+                <run bold='true' fontsize='11'>Subscribers Gained</run>
+              </formatted-text>
+            </format>
+          </style-rule>
+          <style-rule element='quick-filter'>
+            <format attr='title' field='[federated.0kllgy80si48e0183ryhy1nuoz6v].[none:day:qk]' value='&#10;&#10;&#10;&#10;Filter by Day&#10;&#10;'>
+              <formatted-text>
+                <run>Æ&#10;&#10;&#10;&#10;</run>
+                <run bold='true' fontsize='11'>Filter by Day</run>
+                <run>Æ&#10;&#10;</run>
+              </formatted-text>
+            </format>
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Square' />
+            <encodings>
+              <color column='[federated.0kllgy80si48e0183ryhy1nuoz6v].[sum:subscribersGained:qk]' />
+              <text column='[federated.0kllgy80si48e0183ryhy1nuoz6v].[sum:subscribersGained:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='has-stroke' value='false' />
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-line-first' value='true' />
+                <format attr='mark-labels-line-last' value='true' />
+                <format attr='mark-labels-range-min' value='true' />
+                <format attr='mark-labels-range-max' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-range-scope' value='pane' />
+                <format attr='mark-labels-range-field' value='' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0kllgy80si48e0183ryhy1nuoz6v].[yr:day:ok]</rows>
+        <cols>[federated.0kllgy80si48e0183ryhy1nuoz6v].[mn:day:ok]</cols>
+      </table>
+      <simple-id uuid='{44A6E841-D2C3-45A4-A516-AD5E26EED697}' />
+    </worksheet>
+    <worksheet name='Tags'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true'>Total de suscriptores del canal:</run>
+            <run> 402&#10;</run>
+            <run bold='true'>Suscriptores ganados por videos:</run>
+            <run> 238&#10;&#10;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Obj_Subscribers' name='federated.0kllgy80si48e0183ryhy1nuoz6v' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0kllgy80si48e0183ryhy1nuoz6v'>
+            <column caption='Day' datatype='date' name='[day]' role='dimension' type='ordinal' />
+            <column caption='esquemaDifusion (videoSummary UED.csv)' datatype='string' name='[esquemaDifusion (videoSummary_UED.csv)]' role='dimension' type='nominal' />
+            <column-instance column='[day]' derivation='None' name='[none:day:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[esquemaDifusion (videoSummary_UED.csv)]' derivation='None' name='[none:esquemaDifusion (videoSummary_UED.csv):nk]' pivot='key' type='nominal' />
+            <column caption='Subscribers Gained' datatype='integer' name='[subscribersGained]' role='measure' type='quantitative' />
+            <column-instance column='[subscribersGained]' derivation='Sum' name='[sum:subscribersGained:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <slices>
+            <column>[federated.0kllgy80si48e0183ryhy1nuoz6v].[none:day:qk]</column>
+            <column>[federated.0kllgy80si48e0183ryhy1nuoz6v].[none:esquemaDifusion (videoSummary_UED.csv):nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' field='[federated.0kllgy80si48e0183ryhy1nuoz6v].[none:esquemaDifusion (videoSummary_UED.csv):nk]' value='139' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0kllgy80si48e0183ryhy1nuoz6v].[none:esquemaDifusion (videoSummary_UED.csv):nk]' />
+            </encodings>
+            <style>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0kllgy80si48e0183ryhy1nuoz6v].[sum:subscribersGained:qk]</rows>
+        <cols>[federated.0kllgy80si48e0183ryhy1nuoz6v].[none:esquemaDifusion (videoSummary_UED.csv):nk]</cols>
+      </table>
+      <simple-id uuid='{697E486A-EBD6-463D-9CD4-3044D4FBBEDB}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name='Obj3_Subscribers'>
+      <style />
+      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <datasources>
+        <datasource caption='Obj_Subscribers' name='federated.0kllgy80si48e0183ryhy1nuoz6v' />
+      </datasources>
+      <datasource-dependencies datasource='federated.0kllgy80si48e0183ryhy1nuoz6v'>
+        <column caption='Day' datatype='date' name='[day]' role='dimension' type='ordinal' />
+        <column-instance column='[day]' derivation='None' name='[none:day:qk]' pivot='key' type='quantitative' />
+      </datasource-dependencies>
+      <zones>
+        <zone h='100000' id='4' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98000' id='7' param='horz' type='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='98000' id='5' type='layout-basic' w='80200' x='800' y='1000'>
+              <zone h='57875' id='3' name='SubscribersGained' w='80200' x='800' y='41125'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='40125' id='16' name='Tags' w='80200' x='800' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+            <zone fixed-size='182' h='98000' id='6' is-fixed='true' param='vert' type='layout-flow' w='18200' x='81000' y='1000'>
+              <zone fixed-size='357' h='45625' id='8' is-fixed='true' name='SubscribersGained' param='[federated.0kllgy80si48e0183ryhy1nuoz6v].[none:day:qk]' show-domain='false' show-null-ctrls='false' type='filter' w='18200' x='81000' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='8625' id='9' name='SubscribersGained' pane-specification-id='0' param='[federated.0kllgy80si48e0183ryhy1nuoz6v].[sum:subscribersGained:qk]' type='color' w='18200' x='81000' y='46625'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='750' minheight='750' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='109' type='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='110' param='vert' type='layout-flow' w='98400' x='800' y='1000'>
+                <zone fixed-size='280' h='40125' id='16' is-fixed='true' name='Tags' w='80200' x='800' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='357' h='45625' id='8' name='SubscribersGained' param='[federated.0kllgy80si48e0183ryhy1nuoz6v].[none:day:qk]' show-domain='false' show-null-ctrls='false' type='filter' w='18200' x='81000' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='57875' id='3' is-fixed='true' name='SubscribersGained' w='80200' x='800' y='41125'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='8625' id='9' name='SubscribersGained' pane-specification-id='0' param='[federated.0kllgy80si48e0183ryhy1nuoz6v].[sum:subscribersGained:qk]' type='color' w='18200' x='81000' y='46625'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{B5ED3834-470F-43CE-B3ED-61815A2CB4DE}' />
+    </dashboard>
+  </dashboards>
+  <windows film-mode='true' source-height='30'>
+    <window class='worksheet' name='Tags'>
+      <cards>
+        <edge name='left'>
+          <strip size='285'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0kllgy80si48e0183ryhy1nuoz6v].[none:esquemaDifusion (videoSummary_UED.csv):nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0kllgy80si48e0183ryhy1nuoz6v].[none:esquemaDifusion (videoSummary_UED.csv):nk]</field>
+            <field>[federated.0kllgy80si48e0183ryhy1nuoz6v].[none:esquemaDifusion:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{73434F63-9461-481F-A0B2-14AF4B80DBDC}' />
+    </window>
+    <window class='worksheet' name='SubscribersGained'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card param='[federated.0kllgy80si48e0183ryhy1nuoz6v].[none:esquemaDifusion (videoSummary_UED.csv):nk]' type='filter' />
+            <card param='[federated.0kllgy80si48e0183ryhy1nuoz6v].[none:day:qk]' show-domain='false' show-null-ctrls='false' type='filter' />
+            <card pane-specification-id='0' param='[federated.0kllgy80si48e0183ryhy1nuoz6v].[sum:subscribersGained:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <selection-collection>
+          <tuple-selection>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields />
+                  <y-fields />
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0kllgy80si48e0183ryhy1nuoz6v].[none:Calculation_1060034824409300995:qk]</field>
+                  <field>[federated.0kllgy80si48e0183ryhy1nuoz6v].[sum:views:qk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>2</value>
+                <value>901</value>
+              </tuple>
+            </tuple-reference>
+          </tuple-selection>
+        </selection-collection>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0kllgy80si48e0183ryhy1nuoz6v].[mn:day:ok]</field>
+            <field>[federated.0kllgy80si48e0183ryhy1nuoz6v].[none:Calculation_1060034824409300995:qk]</field>
+            <field>[federated.0kllgy80si48e0183ryhy1nuoz6v].[none:Calculation_1859423758667280384:nk]</field>
+            <field>[federated.0kllgy80si48e0183ryhy1nuoz6v].[none:esquemaDifusion (videoSummary_UED.csv):nk]</field>
+            <field>[federated.0kllgy80si48e0183ryhy1nuoz6v].[sum:views:qk]</field>
+            <field>[federated.0kllgy80si48e0183ryhy1nuoz6v].[tmn:day:ok]</field>
+            <field>[federated.0kllgy80si48e0183ryhy1nuoz6v].[yr:day:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{6444CCD9-79EE-4B33-9479-A620443D81D1}' />
+    </window>
+    <window class='dashboard' maximized='true' name='Obj3_Subscribers'>
+      <viewpoints>
+        <viewpoint name='SubscribersGained' />
+        <viewpoint name='Tags'>
+          <highlight field='[federated.0kllgy80si48e0183ryhy1nuoz6v].[none:esquemaDifusion (videoSummary_UED.csv):nk]'>
+            <bucket-selection />
+          </highlight>
+        </viewpoint>
+      </viewpoints>
+      <active id='16' />
+      <simple-id uuid='{2069B80A-F1C5-41CD-BD8B-86DEBC9595F2}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Obj3_Subscribers' width='192'>
+      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
+      AABJRU5ErkJggg==
+    </thumbnail>
+    <thumbnail height='84' name='SubscribersGained' width='192'>
+      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
+    </thumbnail>
+    <thumbnail height='192' name='Tags' width='192'>
+      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
+      eJUSi/EEa+s5Lr7ez9jEAqVCjgtnjhPf2GR0YBjLzKMEgqzFk7S0t9EeCZPPpQnZFZZyBgGX
+      gh2Ikl14UEenQO4InsISf/z4KtOpCmZymsHROUIBP16fD93rx6truFwutEqe6zdukMqUHv2/
+      C+3RBgmFWlgYH+L+xBwb6W28/gAu3UthbZ6BoTEqgOKLsL1wj6HZDVr9OgF/AF3X8AbC+N0u
+      op0xPB4/pe11llc3ARdWYY0bg3fJl20ibWH0YIRIwLP7erkCtKhprly9yvhSBiW/zI2hcYLB
+      AL5AEF3TnnTq3EHagm5CrRF8Xo2unh7cvhbCPp1QuB2fx0UwGETTNVpibUzdusHD+VVsILe1
+      AbqObYJPh4XpOcqAO3qUrdkhWto7Hw0Fa3T3dOFSVdLxKUZnE1Qya3x88w6FcpnNdIZAIECl
+      snMO0t7eCqqXaDSM3+dlZX6ebKn6sGjXsTO8//436esK0xrrIuTRd94zfwttIT8+j4v5+QX8
+      rW24bJVoNIqme/F5PWiagm0VGBi8y/p6CnQPugotXoWb16+TzJYBHa+a5cbNO7gDQbz+AB7N
+      hery0toWwBeK0OL149Et5hcW+axCf/DQMVbGxol2RrDNClnbXV+dYNu2sSwLRVXBtrFtUL/0
+      UGtjWTaKoqIoO2P8T6+EbVmPxsNtbBRURXk0fPZkebZtPf4dX3iurSioCljWznCboijYloVl
+      2yiqimLbWPaT332V9Xr6uV+kKAqWZX1umE9RePR/fzrKs7Oe6uOhf9u2UBT1yTqoKgo7z/9i
+      O5VH6/d0G3fed4sv1jzdeb66834+eg+rrffT4/Sf/Wzb1uP388l7rDxum6IoO416tDvuDOkq
+      n9vOnx/mtR8vD57aB556f58sW/3st39yDaGuAiDEi1Y/p0BCHICGC4BplMgXa1Bd3zbZzuaf
+      a9hRNI+GuxJczmfJVDS2k0vEV7c4fvospY0l4ok0x8+ew0gtsLBhcLa/l5IBAVeZjOFiaXqc
+      QGcffR0BHow8INx9hErZwqOWGRmbpvfkWbTSJovxZdoO99MTDR30qooXoAEDkGO74iEdX+Fk
+      bwdLySyFlQQnj8WYnVvByGY4ecTL6MMEumbitYvEervZTKV4MLeB9XKUlkMnaPcbjCYypBOz
+      HDv1MuNjo7TpJrHj/STmFuiJ1v6mPFF/Gu4U6DPBcITWUABVVQiEI7SGg+guDaucZWllA19r
+      GwElzabpo5JJ4gl30x5wo3k9JFfipLMlALy6wtLSErbLje4NEWltxeN2xr1DogFHgcyKgWkr
+      2JaJR1MpWSpYFTy6i1JFwSptkylaxKIRzFIeAw9ezSK1sYnbGyQU9LCRTOEJtqCpLtwui9TG
+      FqFIOy7bRPd4KJdKeDx7GOMXDe//ADPQKdOcLB5dAAAAAElFTkSuQmCC
+    </thumbnail>
+  </thumbnails>
+</workbook>
